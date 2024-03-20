@@ -1,0 +1,9 @@
+//this Logo component is used is Footer.jsx
+
+import React from "react";
+
+function Logo({ width = "100px" }) {
+  return <div>Logo</div>;
+}
+
+export default Logo;
