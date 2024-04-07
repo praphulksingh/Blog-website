@@ -2,8 +2,17 @@
 
 import React from "react";
 
-function Logo({ width = "100px" }) {
-  return <div>Logo</div>;
+function Logo() {
+  return (
+    <div>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ43G1OehoEp8gaNOTS3RHgiiqWnS5WSw-mJQ&s"
+        width='70px'
+        className="rounded-xl"
+        alt="Logo"
+      />
+    </div>
+  );
 }
 
 export default Logo;
