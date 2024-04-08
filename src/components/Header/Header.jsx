@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect ,useState} from 'react'
 import {Container, Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
-
+ const [active, setActive] = useState("");
   
 
   const navItems = [
@@ -45,7 +45,7 @@ function Header() {
         <nav className="flex">
           <div className="mr-4">
             <Link to="/">
-              <Logo  />
+              <Logo />
             </Link>
           </div>
 
@@ -54,9 +54,12 @@ function Header() {
               item.active ? (
                 <li key={item.name}>
                   <button
-                    onClick={() => navigate(item.slug)}
-                    className="inline-bock px-6 py-2 duration-200text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 "
-                    aria-current="page"
+                    onClick={() =>{
+                      setActive(item.name);
+                      navigate(item.slug)}}
+                    className={`${
+                      active === item.name ? "text-white" : "text-secondary"
+                    } inline-bock px-6 py-2 duration-200  border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
                   >
                     {item.name}
                   </button>
