@@ -16,12 +16,12 @@ export class Service{
     }
 
     //taking inputs from the user to create articles 
-    async createPost({title, slug, content, featuredImage, status, userId}){
+     async createPost({title, slug, content, featuredImage, status, userId}){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,//post id
+                slug,
                 {
                     title,
                     content,
